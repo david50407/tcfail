@@ -21,11 +21,6 @@ NSString *plistPath = @"/System/Library/Frameworks/ApplicationServices.framework
 	[availableFontArray release];
 	[super dealloc];
 }
-
-- (NSString *)tempFilePath
-{
-	return @"/tmp/DefaultFontFallbacks.plist";
-}
 - (void)addFontWithName:(NSString *)name
 {
 	NSMutableDictionary *fontDictionary = [NSMutableDictionary dictionary];
@@ -37,25 +32,16 @@ NSString *plistPath = @"/System/Library/Frameworks/ApplicationServices.framework
 {
 	[self.window center];
 }
-
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification 
+- (NSString *)tempFilePath
 {
+	return @"/tmp/DefaultFontFallbacks.plist";
+}
 
-	[self.tableView setRowHeight:25.0];
-	[self tempFilePath];
-	
-	availableFontArray = [[NSMutableArray alloc] init];
-	[self addFontWithName:@"LiHeiPro"];
-	[self addFontWithName:@"LiGothicMed"];
-	[self addFontWithName:@"STHeitiTC-Medium"];
-	[self addFontWithName:@"STHeitiTC-Light"];
-	[self addFontWithName:@"STXihei"];
-	[self addFontWithName:@"STHeiti"];
-	[self addFontWithName:@"HiraKakuPro-W3"];
-	[self addFontWithName:@"HiraKakuPro-W6"];
-	[self addFontWithName:@"HiraKakuProN-W3"];
-	[self addFontWithName:@"HiraKakuProN-W6"];
-	[self.tableView reloadData];
+- (void)logout
+{
+	NSAppleScript *script = [[NSAppleScript alloc] initWithSource:@"tell application \"System Events\" to log out"];
+	[script autorelease];
+	[script executeAndReturnError:nil];	
 }
 
 - (IBAction)change:(id)sender
@@ -98,7 +84,6 @@ NSString *plistPath = @"/System/Library/Frameworks/ApplicationServices.framework
 		if (!([key isEqualToString:@"sans-serif"] || [key isEqualToString:@"monospace"] || [key isEqualToString:@"default"]) ){
 			continue;
 		}
-		NSLog(@"key:%@", key);
 		
 		NSArray *settings = [plist valueForKey:key];
 		for (id item in settings) {
@@ -106,7 +91,6 @@ NSString *plistPath = @"/System/Library/Frameworks/ApplicationServices.framework
 				for (NSArray *a in item) {
 					if ([a count] && [[a objectAtIndex:0] isEqualToString:@"zh-Hant"]) {
 						[(NSMutableArray *)a replaceObjectAtIndex:1 withObject:currentTraditionalChineseFontName];
-						NSLog(@"a:%@", [a description]);
 					}
 				}
 			}
@@ -114,8 +98,7 @@ NSString *plistPath = @"/System/Library/Frameworks/ApplicationServices.framework
 	}
 	data = [NSPropertyListSerialization dataFromPropertyList:plist format:format errorDescription:NULL];
 	[data writeToFile:[self tempFilePath] atomically:YES];
-	
-	
+
 	char * args[2];
 	args[0] = (char *)[[self tempFilePath] UTF8String];
 	args[1] = (char *)[plistPath UTF8String];
@@ -124,12 +107,38 @@ NSString *plistPath = @"/System/Library/Frameworks/ApplicationServices.framework
 	status = AuthorizationExecuteWithPrivileges(authorizationRef, "/bin/cp", 0, args, NULL);
 	
 	if (status != noErr) {
-		NSLog(@"Could not move file.");
-		return NO;
+		NSRunAlertPanel(NSLocalizedString(@"Unable to write your setting.", @""), @"", NSLocalizedString(@"OK", @""), nil, nil);
+		return;
 	}
 	
-	NSRunAlertPanel(NSLocalizedString(@"The new font will take effect after you reboot your Macintosh.", @""), @"", NSLocalizedString(@"OK", @""), nil, nil);
+	NSInteger result = NSRunAlertPanel(NSLocalizedString(@"The new font will take effect after logging out. Do you want to logout now?", @""), @"", NSLocalizedString(@"Logout", @""), NSLocalizedString(@"Cancel", @""), nil);
 	
+	if (result == NSOKButton) {
+		[self logout];
+	}
+	
+}
+
+#pragma mark NSApplicationDelegate
+
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification 
+{
+	
+	[self.tableView setRowHeight:25.0];
+	[self tempFilePath];
+	
+	availableFontArray = [[NSMutableArray alloc] init];
+	[self addFontWithName:@"LiGothicMed"];
+	[self addFontWithName:@"LiHeiPro"];
+	[self addFontWithName:@"STHeitiTC-Medium"];
+	[self addFontWithName:@"STHeitiTC-Light"];
+	[self addFontWithName:@"STXihei"];
+	[self addFontWithName:@"STHeiti"];
+	[self addFontWithName:@"HiraKakuPro-W3"];
+	[self addFontWithName:@"HiraKakuPro-W6"];
+	[self addFontWithName:@"HiraKakuProN-W3"];
+	[self addFontWithName:@"HiraKakuProN-W6"];
+	[self.tableView reloadData];
 }
 
 #pragma mark -
@@ -147,7 +156,7 @@ NSString *plistPath = @"/System/Library/Frameworks/ApplicationServices.framework
 		return [d valueForKey:@"checked"];
 	}
 	else if ([identifier isEqualToString:@"name"]) {
-		return [d valueForKey:@"name"];
+		return NSLocalizedString([d valueForKey:@"name"], @"");
 	}
 	else if ([identifier isEqualToString:@"sample"]) {
 		return @"中文字體範例 晴睛餉令零翱翔賣讀直值";

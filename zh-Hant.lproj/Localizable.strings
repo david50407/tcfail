@@ -1,0 +1,31 @@
+﻿/* No comment provided by engineer. */
+"Cancel" = "取消";
+
+/* No comment provided by engineer. */
+"Could not get authorization, failing." = "無法取得授權，變更系統字體失敗！";
+
+/* No comment provided by engineer. */
+"Logout" = "登出";
+
+/* No comment provided by engineer. */
+"OK" = "好";
+
+/* No comment provided by engineer. */
+"Please select the font that you want to use." = "請選擇您想要使用的字體。";
+
+/* No comment provided by engineer. */
+"The new font will take effect after logging out. Do you want to logout now?" = "系統字體會在您重新登入後生效。請問您想要現在就登出嗎？";
+
+/* No comment provided by engineer. */
+"Unable to write your setting." = "無法寫入系統設定。";
+
+"LiGothicMed" = "蘋果儷中黑";
+"LiHeiPro" = "儷黑 Pro";
+"STHeitiTC-Medium"= "黑體-繁 中黑";
+"STHeitiTC-Light" = "黑體-繁 細體";
+"STXihei" = "华文细黑";
+"STHeiti" = "华文黑体";
+"HiraKakuPro-W3" = "ヒラギノ角ゴ Pro W3";
+"HiraKakuPro-W6" = "ヒラギノ角ゴ Pro W6";
+"HiraKakuProN-W3" = "ヒラギノ角ゴ ProN W3";
+"HiraKakuProN-W6" = "ヒラギノ角ゴ ProN W6";

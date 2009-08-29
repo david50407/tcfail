@@ -13,6 +13,7 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		D4709C8D1049849600870101 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4709C8C1049849600870101 /* Security.framework */; };
+		D4E26AB9104996BC00CE1D40 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4E26AB7104996BC00CE1D40 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,10 @@
 		8D1107310486CEB800E47090 /* TCFail-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TCFail-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* TCFail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCFail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4709C8C1049849600870101 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D4E26AB8104996BC00CE1D40 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D4E26AC91049970B00CE1D40 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hant"; path = "zh-Hant.lproj/MainMenu.xib"; sourceTree = "<group>"; };
+		D4E26AD3104997E500CE1D40 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		D4E26AD71049980500CE1D40 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1107310486CEB800E47090 /* TCFail-Info.plist */,
+				D4E26AB7104996BC00CE1D40 /* Localizable.strings */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
 			);
@@ -149,6 +155,13 @@
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "TCFail" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				"zh-Hant",
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* TCFail */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -165,6 +178,7 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				D4E26AB9104996BC00CE1D40 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +201,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				089C165DFE840E0CC02AAC07 /* English */,
+				D4E26AD3104997E500CE1D40 /* zh-Hant */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -195,8 +210,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				1DDD58150DA1D0A300B32029 /* English */,
+				D4E26AC91049970B00CE1D40 /* zh-Hant */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		D4E26AB7104996BC00CE1D40 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4E26AB8104996BC00CE1D40 /* English */,
+				D4E26AD71049980500CE1D40 /* zh-Hant */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -216,6 +241,7 @@
 				INFOPLIST_FILE = "TCFail-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = TCFail;
+				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
@@ -230,6 +256,7 @@
 				INFOPLIST_FILE = "TCFail-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = TCFail;
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};
