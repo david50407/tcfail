@@ -1,9 +1,34 @@
 //
-//  TCFailAppDelegate.m
-//  TCFail
+// TCFailAppDelegate.m
+// TCFail
 //
-//  Created by Weizhong Yang on 8/29/09.
-//
+// Copyright (c) Weizhong Yang (http://zonble.net)
+// All rights reserved.
+// 
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions
+// are met:
+// 
+// 1. Redistributions of source code must retain the above copyright
+//    notice, this list of conditions and the following disclaimer.
+// 2. Redistributions in binary form must reproduce the above copyright
+//    notice, this list of conditions and the following disclaimer in the
+//    documentation and/or other materials provided with the distribution.
+// 3. Neither the name of OpenVanilla nor the names of its contributors
+//    may be used to endorse or promote products derived from this software
+//    without specific prior written permission.
+// 
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+// POSSIBILITY OF SUCH DAMAGE.
 
 #import "TCFailAppDelegate.h"
 #import <Security/Security.h>
@@ -11,6 +36,9 @@
 static AuthorizationRef authorizationRef = NULL;
 
 NSString *plistPath = @"/System/Library/Frameworks/ApplicationServices.framework/Frameworks/CoreText.framework/Resources/DefaultFontFallbacks.plist";
+
+NSString *plistFolderPath = @"/System/Library/Frameworks/ApplicationServices.framework/Frameworks/CoreText.framework/Resources";
+
 
 @implementation TCFailAppDelegate
 
@@ -34,6 +62,21 @@ NSString *plistPath = @"/System/Library/Frameworks/ApplicationServices.framework
 }
 - (NSString *)tempFilePath
 {
+	BOOL isDir;
+	if (![[NSFileManager defaultManager] fileExistsAtPath:@"/tmp" isDirectory:&isDir]) {
+		if (![[NSFileManager defaultManager] createDirectoryAtPath:@"/tmp" withIntermediateDirectories:NO attributes:nil error:nil]) {
+			return nil;
+		}
+	}
+	if (!isDir) {
+		if (![[NSFileManager defaultManager] removeItemAtPath:@"/tmp" error:nil]) {
+			return nil;
+		}
+		if (![[NSFileManager defaultManager] createDirectoryAtPath:@"/tmp" withIntermediateDirectories:NO attributes:nil error:nil]) {
+			return nil;
+		}
+	}
+	
 	return @"/tmp/DefaultFontFallbacks.plist";
 }
 
@@ -76,9 +119,20 @@ NSString *plistPath = @"/System/Library/Frameworks/ApplicationServices.framework
 		return;
 	}
 	
+	if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
+		NSRunAlertPanel(NSLocalizedString(@"The original coretext setting does not exist! Your system might have a big problem...", @""), @"", NSLocalizedString(@"OK", @""), nil, nil);
+		return;
+	}
+	
 	NSData *data = [NSData dataWithContentsOfFile:plistPath];
 	NSPropertyListFormat format;
 	id plist = [NSPropertyListSerialization propertyListFromData:data mutabilityOption:NSPropertyListMutableContainersAndLeaves format:&format errorDescription:NULL];
+	
+	if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
+		NSRunAlertPanel(NSLocalizedString(@"Failed to parse the coretext setting! Your system might have a big problem...", @""), @"", NSLocalizedString(@"OK", @""), nil, nil);
+		return;
+	}
+	
 	NSArray *keys = [plist allKeys];
 	for (NSString *key in keys) {
 		if (!([key isEqualToString:@"sans-serif"] || [key isEqualToString:@"monospace"] || [key isEqualToString:@"default"]) ){
@@ -97,7 +151,9 @@ NSString *plistPath = @"/System/Library/Frameworks/ApplicationServices.framework
 		}
 	}
 	data = [NSPropertyListSerialization dataFromPropertyList:plist format:format errorDescription:NULL];
-	[data writeToFile:[self tempFilePath] atomically:YES];
+	if (![data writeToFile:[self tempFilePath] atomically:YES]) {
+		NSRunAlertPanel(NSLocalizedString(@"Unable to write your setting.", @""), @"", NSLocalizedString(@"OK", @""), nil, nil);
+	}
 
 	char * args[2];
 	args[0] = (char *)[[self tempFilePath] UTF8String];
@@ -116,8 +172,23 @@ NSString *plistPath = @"/System/Library/Frameworks/ApplicationServices.framework
 	if (result == NSOKButton) {
 		[self logout];
 	}
+}
+- (IBAction)openPlistFolder:(id)sender
+{
+	NSString *source = [NSString stringWithFormat:@"tell application \"Finder\"\nopen POSIX file \"%@\"\nactivate\nend tell", plistFolderPath];
+	NSAppleScript *script = [[NSAppleScript alloc] initWithSource:source];
+	[script autorelease];
+	[script executeAndReturnError:nil];		
+}
+- (IBAction)backupPlist:(id)sender
+{
+	NSString *source = [NSString stringWithFormat:@"tell application \"Finder\"\nset d to path to desktop folder\nduplicate POSIX file \"%@\" to d with replacing\nend tell", plistPath];
+	NSAppleScript *script = [[NSAppleScript alloc] initWithSource:source];
+	[script autorelease];
+	[script executeAndReturnError:nil];		
 	
 }
+
 
 #pragma mark NSApplicationDelegate
 
