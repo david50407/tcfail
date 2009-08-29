@@ -151,8 +151,15 @@ NSString *plistFolderPath = @"/System/Library/Frameworks/ApplicationServices.fra
 		}
 	}
 	data = [NSPropertyListSerialization dataFromPropertyList:plist format:format errorDescription:NULL];
+	NSString *tempFilePath = [self tempFilePath];
+	if (!tempFilePath) {
+		NSRunAlertPanel(NSLocalizedString(@"Unable to write your setting.", @""), @"", NSLocalizedString(@"OK", @""), nil, nil);
+		return;
+
+	}
 	if (![data writeToFile:[self tempFilePath] atomically:YES]) {
 		NSRunAlertPanel(NSLocalizedString(@"Unable to write your setting.", @""), @"", NSLocalizedString(@"OK", @""), nil, nil);
+		return;
 	}
 
 	char * args[2];
@@ -252,8 +259,17 @@ NSString *plistFolderPath = @"/System/Library/Frameworks/ApplicationServices.fra
 - (void)tableView:(NSTableView *)aTableView willDisplayCell:(id)aCell forTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
 	NSString *fontName = [[availableFontArray objectAtIndex:rowIndex] valueForKey:@"name"];
-	NSFont *font = [NSFont fontWithName:fontName size:20.0];
-	[aCell setFont:font];
+	NSString *identifier = [aTableColumn identifier];
+	if ([identifier isEqualToString:@"name"]) {
+		NSFont *font = [NSFont fontWithName:fontName size:[NSFont systemFontSize]];
+		[aCell setFont:font];
+	}
+	else if ([identifier isEqualToString:@"sample"]) {
+		NSFont *font = [NSFont fontWithName:fontName size:20.0];
+		[aCell setFont:font];
+	}
+
+
 }
 - (void)windowWillClose:(NSNotification *)notification
 {

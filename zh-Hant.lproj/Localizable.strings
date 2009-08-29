@@ -19,10 +19,13 @@
 /* No comment provided by engineer. */
 "Unable to write your setting." = "無法寫入系統設定。";
 
+"The original coretext setting does not exist! Your system might have a big problem..." = "原始的 coretext 設定不存在，您的系統可能有大問題…";
+"Failed to parse the coretext setting! Your system might have a big problem..." = "無法解譯原始的 coretext 設定，您的系統可能有大問題…";
+
 "LiGothicMed" = "蘋果儷中黑";
 "LiHeiPro" = "儷黑 Pro";
-"STHeitiTC-Medium"= "黑體-繁 中黑";
-"STHeitiTC-Light" = "黑體-繁 細體";
+"STHeitiTC-Medium"= "*劣* 黑體-繁 中黑";
+"STHeitiTC-Light" = "*劣* 黑體-繁 細體";
 "STXihei" = "华文细黑";
 "STHeiti" = "华文黑体";
 "HiraKakuPro-W3" = "ヒラギノ角ゴ Pro W3";

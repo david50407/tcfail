@@ -19,3 +19,5 @@
 /* No comment provided by engineer. */
 "Unable to write your setting." = "Unable to write your setting.";
 
+"The original coretext setting does not exist! Your system might have a big problem..." = "The original coretext setting does not exist! Your system might have a big problem...";
+"Failed to parse the coretext setting! Your system might have a big problem..." = "Failed to parse the coretext setting! Your system might have a big problem...";
