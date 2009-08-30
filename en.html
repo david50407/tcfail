@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>TCFail - A utility to change the Traditional Chinese font fallback for Snow Leopard</title>
+
+	<style type="text/css">
+	body {
+			margin-top: 1.0em;
+			background-color: #FFF;
+			font-family: "helvetica"; 
+			color: #000000;
+			line-height: 1.8em;
+			font-size: 12pt;
+		}
+		#container {
+			margin: 0 auto;
+			width: 700px;
+		}
+		h1 { font-size: 3.8em; color: #003300; margin-bottom: 3px; }
+		h1 .small { font-size: 0.4em; color: #333; }
+		h1 a { text-decoration: none }
+		h2 { font-size: 1.5em; color: #003300; }
+		h3 { text-align: center; color: #003300; }
+		a { color: #003300; }
+		.description { font-size: 11pt; margin-bottom: 50px; margin-top: 10px;}
+		.download { float: right; }
+		pre { background: #000; color: #fff; padding: 15px;}
+		hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+		.footer { text-align:center; padding-top:30px; font-style: italic; }
+		.logo {float: right; margin-left: 30px; margin-bottom: 30px; margin-top: 30px;}
+		div#download {border: 1px solid #666; padding: 20px;}
+	</style>
+</head>
+
+<body>
+	<a href="http://github.com/zonble/tcfail">
+	<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+	
+	<div id="container">		
+	<h1><a href="http://github.com/zonble/tcfail">TCFail</a><br /><span class="small">A utility to change the Traditional Chinese font fallback for Snow Leopard</span></h1>
+	<div class="description">
+	<p>Copyright © 2009 Weizhong Yang (a.k.a zonble, <a href="http://zonble.net">http://zonble.net</a>). All Rights Reserved.</p>
+	</div>
+	
+	<p><a href="index.html" title="中文">中文</a></p>
+	
+	<div id="download">
+	<h2>Download</h2>
+	<p>You can download the latest release of TCFail from the <a href="https://github.com/zonble/tcfail/downloads">download page</a> provided by GitHub.</p>
+	</div>
+
+	<img src="Icon.jpg" class="logo" alt="TCFail Logo"/>
+	
+	<h2>Introduction</h2>
+	
+	<p>If you are a Mac user who need to read and write Traditional Chinese, the first thing you may want to do after installing Apple's latest operating system, Mac OS X 10.6 Snow Leopard, may be to disable the default Traditional Chinese Font, <em>Heiti TC</em> (黑體．繁).</p>
+	<p>It is true. You can find that many people are keen to find a way to make the font out of their sight, try to use the system font of 10.5 Leopard, and discuss about it on Taiwanese Mac user forums such as <a hrefd="http://www.oikos.com.tw/v4/viewtopic.php?pid=474413">OIKOS</a> and <a href="http://www.mobile01.com/topicdetail.php?f=177&amp;t=1209134&amp;p=1">Mobile01</a>. (Links are in Chinese)</p>
+	<p>The new Chinese system font looks really bad and it is almost a shame of Apple's design. It was created by SinoType, a Mainland China based software company who also create the Simplified Chinese font for Mac OS X and seems lacking the knowledge to satisfy the needs of the Traditional Chinese users in HongKong and Taiwan.</p>
+	<p>The strokes are too thin and make it hard to read the characters on the monitors, and the forms of the glyphs do not follow the standard of Ministry of Education in Taiwan, and the convention of the publications. Some glyphs seem coming from the Japanese Kanjis, or some ancient alternative forms no longer popular today. And if there are some characters should be a series or have a identical radical, they may be also not created in a consistent principle. For example, the right part of "清", "晴" and "請" is identical, but "清" has a "月" (moon) while "晴" and "請" have "円"(the currency symbol of Japanese yen). However, most users have a simple conclusion - it is ugly.</p>
+	<p>What <b>TCFail</b> does is to help the users to easily change the default Traditional Chinese font to another ones, they may want to restore the system font to 10.5 Leopard's, LiHei Pro, which they fell familiar to for years.</p>
+	<p>By the way, the Traditional Chinese font of iPhoneOS 3.0 is also terrible, and you have no way to change it. Gee!</p>
+
+	<h2>System Requirement</h2>
+	
+	<p>Mac OS X 10.6 Snow Leopard is required.</p>
+	
+	<h2>How to use it?</h2>
+	
+	<p><img src="screen.jpg" alt="Screen shot" width="700"/></p>
+	
+	<p>Select the font that you want to use from the main table, and then click on the "Change!" button. Done.</p>
+	<p>The new font will take effect after re-login.</p>
+
+	<h2>Download source code</h2>
+
+    <p>
+      You can download this project in either
+      <a href="http://github.com/zonble/tcfail/zipball/master">zip</a> or
+      <a href="http://github.com/zonble/tcfail/tarball/master">tar</a> formats.
+    </p>
+    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
+      by running:
+      <pre>$ git clone git://github.com/zonble/tcfail</pre>
+    </p>
+	
+	<h2>License</h2>
+	
+	<p>The application is released under New BSD License.</p>
+	
+	<h2>What I ask for Apple</h2>
+	
+	<p>Well, Snow Leopard is really advanced, but the bad font totally ruins the Traditional Chinese Mac Users' experience. No matter how great the kernel is, how fast the applications run, how many new technologies are introduced, there are countless users whose mother tongue is not English, if you do not pay more attentions to know about the language specific needs, or not to make right decisions, your products fail.</p>
+
+	<p>You may consider that people in Mainland China, HongKong and Taiwan all speak Chinese, however, there is still a distance between Beijing, Taipei, HongKong and so on, and I really doubt that your staff in Beijing can meet any Traditional Chinese user in their daily life, and do some research or survey among the users to know what they really want. Please keep it in your mind: the information you hear from Beijing is absolutely not enough.</p>
+
+    <h2>Contact</h2>
+    
+    <p>Please mail to <a href="mailto://service {at} zonble {dot} net">service {at} zonble {dot} net</a></p>
+
+
+	<img src="badge.gif" alt="Made on a Mac" />
+
+	</div>
+
+
+	
+</body>
+</html>
