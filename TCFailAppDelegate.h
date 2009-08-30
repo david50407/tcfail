@@ -41,13 +41,29 @@ extern NSString *plistFolderPath;
 	NSTableView *tableView;
 
 	NSMutableArray *availableFontArray;
+	
+	IBOutlet NSTextField *currentSystemFontNameLabel;
+	IBOutlet NSTextView *currrentSystemFontPreviewTextView;
+	IBOutlet NSTextField *currentSelectedFontNameLabel;
+	IBOutlet NSTextView *currentSelectedFontPreviewTextView;
+	IBOutlet NSSlider *fontSizeSlider;
+	
+	NSString *currentSystemFontName;
+	NSString *currentSelectedFontName;
 }
 
 - (IBAction)change:(id)sender;
 - (IBAction)openPlistFolder:(id)sender;
 - (IBAction)backupPlist:(id)sender;
+- (IBAction)changePreviewFontSize:(id)sender;
+- (IBAction)openHomepage:(id)sender;
+
+- (void)retrieveCurrentSystemFontName;
+- (void)updatePreview;
 
 @property (assign, nonatomic) IBOutlet NSWindow *window;
 @property (assign, nonatomic) IBOutlet NSTableView *tableView;
+@property (retain, nonatomic) NSString *currentSystemFontName;
+@property (retain, nonatomic) NSString *currentSelectedFontName;
 
 @end

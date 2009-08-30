@@ -21,3 +21,10 @@
 
 "The original coretext setting does not exist! Your system might have a big problem..." = "The original coretext setting does not exist! Your system might have a big problem...";
 "Failed to parse the coretext setting! Your system might have a big problem..." = "Failed to parse the coretext setting! Your system might have a big problem...";
+
+
+"Default TC font of Mac OS X 10.5" = "Default TC font of Mac OS X 10.5";
+"Default TC font of Mac OS X 10.6" = "Default TC font of Mac OS X 10.6";
+"Traditional Chinese font" = "Traditional Chinese font";
+"Simplified Chinese font" = "Simplified Chinese font";
+"Japanese font" = "Japanese font";

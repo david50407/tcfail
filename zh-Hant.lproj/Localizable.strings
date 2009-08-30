@@ -24,11 +24,16 @@
 
 "LiGothicMed" = "蘋果儷中黑";
 "LiHeiPro" = "儷黑 Pro";
-"STHeitiTC-Medium"= "*劣* 黑體-繁 中黑";
-"STHeitiTC-Light" = "*劣* 黑體-繁 細體";
+"STHeitiTC-Medium"= "黑體-繁 中黑";
+"STHeitiTC-Light" = "黑體-繁 細體";
 "STXihei" = "华文细黑";
 "STHeiti" = "华文黑体";
 "HiraKakuPro-W3" = "ヒラギノ角ゴ Pro W3";
 "HiraKakuPro-W6" = "ヒラギノ角ゴ Pro W6";
 "HiraKakuProN-W3" = "ヒラギノ角ゴ ProN W3";
 "HiraKakuProN-W6" = "ヒラギノ角ゴ ProN W6";
+"Default TC font of Mac OS X 10.5" = "Mac OS X 10.5 預設繁體中文字體";
+"Default TC font of Mac OS X 10.6" = "Mac OS X 10.6 預設繁體中文字體";
+"Traditional Chinese font" = "繁體中文字體";
+"Simplified Chinese font" = "簡體中文字體";
+"Japanese font" = "日文字體";

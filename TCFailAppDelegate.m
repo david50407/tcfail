@@ -39,21 +39,23 @@ NSString *plistPath = @"/System/Library/Frameworks/ApplicationServices.framework
 
 NSString *plistFolderPath = @"/System/Library/Frameworks/ApplicationServices.framework/Frameworks/CoreText.framework/Resources";
 
-
 @implementation TCFailAppDelegate
 
 - (void)dealloc
 {
 	self.window = nil;
 	self.tableView = nil;
+	self.currentSystemFontName = nil;
+	self.currentSelectedFontName = nil;
 	[availableFontArray release];
 	[super dealloc];
 }
-- (void)addFontWithName:(NSString *)name
+- (void)addFontWithName:(NSString *)name note:(NSString *)note
 {
 	NSMutableDictionary *fontDictionary = [NSMutableDictionary dictionary];
 	[fontDictionary setValue:[NSNumber numberWithBool:NO] forKey:@"checked"];
 	[fontDictionary setValue:name forKey:@"name"];
+	[fontDictionary setValue:note forKey:@"note"];
 	[availableFontArray addObject:fontDictionary];
 }
 - (void)awakeFromNib
@@ -195,27 +197,95 @@ NSString *plistFolderPath = @"/System/Library/Frameworks/ApplicationServices.fra
 	[script executeAndReturnError:nil];		
 	
 }
+- (IBAction)changePreviewFontSize:(id)sender
+{
+	[self updatePreview];
+}
+- (IBAction)openHomepage:(id)sender
+{
+	NSURL *URL = [NSURL URLWithString:@"http://zonble.github.com/tcfail/"];
+	[[NSWorkspace sharedWorkspace] openURL:URL];
+}
 
+- (void)retrieveCurrentSystemFontName
+{
+	NSData *data = [NSData dataWithContentsOfFile:plistPath];
+	NSPropertyListFormat format;
+	id plist = [NSPropertyListSerialization propertyListFromData:data mutabilityOption:NSPropertyListMutableContainersAndLeaves format:&format errorDescription:NULL];
+	
+	if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
+		NSRunAlertPanel(NSLocalizedString(@"Failed to parse the coretext setting! Your system might have a big problem...", @""), @"", NSLocalizedString(@"OK", @""), nil, nil);
+		return;
+	}
+	
+	NSArray *keys = [plist allKeys];
+	for (NSString *key in keys) {
+		if (!([key isEqualToString:@"default"])){
+			continue;
+		}
+		
+		NSArray *settings = [plist valueForKey:key];
+		for (id item in settings) {
+			if ([item isKindOfClass:[NSArray class]]) {
+				for (NSArray *a in item) {
+					if ([a count] >= 2 && [[a objectAtIndex:0] isEqualToString:@"zh-Hant"]) {
+						self.currentSystemFontName = [a objectAtIndex:1];
+						NSLog(@"name:%@", [a objectAtIndex:1]);
+						[self updatePreview];
+						return;
+					}
+				}
+			}
+		}
+	}
+	self.currentSystemFontName = nil;	
+}
+- (void)updatePreview
+{
+	CGFloat fontSize = [fontSizeSlider doubleValue];
+	NSString *previewText = [NSString stringWithUTF8String:"中文字體範例請晴睛餉飯食令零翱翔賣讀直值楊揚鄉響饗俞輸妳好"];
+	if (self.currentSystemFontName) {
+		[currentSystemFontNameLabel setStringValue:NSLocalizedString(self.currentSystemFontName, @"")];
+		NSDictionary *attr = [NSDictionary dictionaryWithObjectsAndKeys:[NSFont fontWithName:self.currentSystemFontName size:fontSize], NSFontAttributeName, nil];
+		NSAttributedString *attrString = [[[NSAttributedString alloc] initWithString:previewText attributes:attr] autorelease];
+		[[currrentSystemFontPreviewTextView textStorage] setAttributedString:attrString];
+	}
+	else {
+		[currentSystemFontNameLabel setStringValue:NSLocalizedString(@"None", @"")];
+		[[[currrentSystemFontPreviewTextView textStorage] mutableString] setString:@""];
+	}
+	if (self.currentSelectedFontName) {
+		[currentSelectedFontNameLabel setStringValue:NSLocalizedString(self.currentSelectedFontName, @"")];
+		NSDictionary *attr = [NSDictionary dictionaryWithObjectsAndKeys:[NSFont fontWithName:self.currentSelectedFontName size:fontSize], NSFontAttributeName, nil];
+		NSAttributedString *attrString = [[[NSAttributedString alloc] initWithString:previewText attributes:attr] autorelease];
+		[[currentSelectedFontPreviewTextView textStorage] setAttributedString:attrString];
+		
+	}
+	else {
+		[currentSelectedFontNameLabel setStringValue:NSLocalizedString(@"None", @"")];
+		[[[currentSelectedFontPreviewTextView textStorage] mutableString] setString:@""];
+	}
+	
+}
 
 #pragma mark NSApplicationDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification 
 {
-	
 	[self.tableView setRowHeight:25.0];
-	[self tempFilePath];
+	[self retrieveCurrentSystemFontName];
 	
 	availableFontArray = [[NSMutableArray alloc] init];
-	[self addFontWithName:@"LiGothicMed"];
-	[self addFontWithName:@"LiHeiPro"];
-	[self addFontWithName:@"STHeitiTC-Medium"];
-	[self addFontWithName:@"STHeitiTC-Light"];
-	[self addFontWithName:@"STXihei"];
-	[self addFontWithName:@"STHeiti"];
-	[self addFontWithName:@"HiraKakuPro-W3"];
-	[self addFontWithName:@"HiraKakuPro-W6"];
-	[self addFontWithName:@"HiraKakuProN-W3"];
-	[self addFontWithName:@"HiraKakuProN-W6"];
+	[self addFontWithName:@"LiHeiPro" note:@"Default TC font of Mac OS X 10.5"];
+	[self addFontWithName:@"LiGothicMed" note:@"Traditional Chinese font"];
+	[self addFontWithName:@"STXihei" note:@"Simplified Chinese font"];
+	[self addFontWithName:@"STHeiti" note:@"Simplified Chinese font"];
+	[self addFontWithName:@"HiraKakuPro-W3" note:@"Japanese font"];
+	[self addFontWithName:@"HiraKakuPro-W6" note:@"Japanese font"];
+	[self addFontWithName:@"HiraKakuProN-W3" note:@"Japanese font"];
+	[self addFontWithName:@"HiraKakuProN-W6" note:@"Japanese font"];
+	[self addFontWithName:@"STHeitiTC-Medium" note:@"Default TC font of Mac OS X 10.6"];
+	[self addFontWithName:@"STHeitiTC-Light" note:@"Default TC font of Mac OS X 10.6"];
 	[self.tableView reloadData];
 }
 
@@ -236,9 +306,9 @@ NSString *plistFolderPath = @"/System/Library/Frameworks/ApplicationServices.fra
 	else if ([identifier isEqualToString:@"name"]) {
 		return NSLocalizedString([d valueForKey:@"name"], @"");
 	}
-	else if ([identifier isEqualToString:@"sample"]) {
-		return @"中文字體範例 晴睛餉令零翱翔賣讀直值";
-	}	
+	else if ([identifier isEqualToString:@"note"]) {
+		return NSLocalizedString([d valueForKey:@"note"], @"");
+	}
 	return nil;
 }
 - (void)tableView:(NSTableView *)aTableView setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
@@ -251,26 +321,39 @@ NSString *plistFolderPath = @"/System/Library/Frameworks/ApplicationServices.fra
 			[dict setValue:[NSNumber numberWithBool:NO] forKey:@"checked"];
 		}
 		
-		[d setValue:[NSNumber numberWithBool:YES] forKey:@"checked"];		
-		[aTableView reloadData];
+		[d setValue:[NSNumber numberWithBool:YES] forKey:@"checked"];
+		self.currentSelectedFontName = [d valueForKey:@"name"];
+		[self updatePreview];
 	}	
 }
 
 - (void)tableView:(NSTableView *)aTableView willDisplayCell:(id)aCell forTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
-	NSString *fontName = [[availableFontArray objectAtIndex:rowIndex] valueForKey:@"name"];
 	NSString *identifier = [aTableColumn identifier];
 	if ([identifier isEqualToString:@"name"]) {
+		NSString *fontName = [[availableFontArray objectAtIndex:rowIndex] valueForKey:@"name"];
 		NSFont *font = [NSFont fontWithName:fontName size:[NSFont systemFontSize]];
 		[aCell setFont:font];
 	}
-	else if ([identifier isEqualToString:@"sample"]) {
-		NSFont *font = [NSFont fontWithName:fontName size:20.0];
-		[aCell setFont:font];
-	}
-
+}
+- (void)tableViewSelectionDidChange:(NSNotification *)aNotification
+{
+	for (NSMutableDictionary *dict in availableFontArray) {
+		[dict setValue:[NSNumber numberWithBool:NO] forKey:@"checked"];
+	}	
+	
+	NSTableView *theTableView = [aNotification object];
+	NSInteger selectedRow = [theTableView selectedRow];
+	NSMutableDictionary *d = [availableFontArray objectAtIndex:selectedRow];
+	[d setValue:[NSNumber numberWithBool:YES] forKey:@"checked"];
+	self.currentSelectedFontName = [d valueForKey:@"name"];	
+	[self updatePreview];
+	[theTableView reloadData];
 
 }
+
+#pragma mark NSWindow
+
 - (void)windowWillClose:(NSNotification *)notification
 {
 	[NSApp terminate:self];
@@ -279,5 +362,7 @@ NSString *plistFolderPath = @"/System/Library/Frameworks/ApplicationServices.fra
 
 @synthesize window;
 @synthesize tableView;
+@synthesize currentSystemFontName;
+@synthesize currentSelectedFontName;
 
 @end
