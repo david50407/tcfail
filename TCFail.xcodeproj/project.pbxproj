@@ -13,6 +13,8 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		D4709C8D1049849600870101 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4709C8C1049849600870101 /* Security.framework */; };
+		D4D27FE9104A7C6F00A959FB /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D4D27FE8104A7C6F00A959FB /* Icon.icns */; };
+		D4D27FF0104A7D2D00A959FB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D4D27FEE104A7D2D00A959FB /* Credits.rtf */; };
 		D4E26AB9104996BC00CE1D40 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4E26AB7104996BC00CE1D40 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,9 @@
 		8D1107310486CEB800E47090 /* TCFail-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TCFail-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* TCFail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCFail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4709C8C1049849600870101 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D4D27FE8104A7C6F00A959FB /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = Artwork/Icon.icns; sourceTree = "<group>"; };
+		D4D27FEF104A7D2D00A959FB /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
+		D4D27FF9104A7E5400A959FB /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = "zh-Hant"; path = "zh-Hant.lproj/Credits.rtf"; sourceTree = "<group>"; };
 		D4E26AB8104996BC00CE1D40 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D4E26AC91049970B00CE1D40 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hant"; path = "zh-Hant.lproj/MainMenu.xib"; sourceTree = "<group>"; };
 		D4E26AD3104997E500CE1D40 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -109,6 +114,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D4D27FEE104A7D2D00A959FB /* Credits.rtf */,
+				D4D27FE8104A7C6F00A959FB /* Icon.icns */,
 				8D1107310486CEB800E47090 /* TCFail-Info.plist */,
 				D4E26AB7104996BC00CE1D40 /* Localizable.strings */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -179,6 +186,8 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				D4E26AB9104996BC00CE1D40 /* Localizable.strings in Resources */,
+				D4D27FE9104A7C6F00A959FB /* Icon.icns in Resources */,
+				D4D27FF0104A7D2D00A959FB /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +222,15 @@
 				D4E26AC91049970B00CE1D40 /* zh-Hant */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		D4D27FEE104A7D2D00A959FB /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4D27FEF104A7D2D00A959FB /* English */,
+				D4D27FF9104A7E5400A959FB /* zh-Hant */,
+			);
+			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
 		D4E26AB7104996BC00CE1D40 /* Localizable.strings */ = {
