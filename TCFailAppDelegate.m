@@ -89,6 +89,17 @@ NSString *plistFolderPath = @"/System/Library/Frameworks/ApplicationServices.fra
 	[script executeAndReturnError:nil];	
 }
 
+- (IBAction)agreeAction:(id)sender
+{
+	[NSApp endSheet:agreeWindow];
+	[agreeWindow orderOut:self];
+}
+- (IBAction)cancelAction:(id)sender
+{
+	[NSApp endSheet:agreeWindow];
+	[agreeWindow orderOut:self];
+	[NSApp terminate:sender];
+}
 - (IBAction)change:(id)sender
 {
 	OSStatus status;
@@ -287,6 +298,9 @@ NSString *plistFolderPath = @"/System/Library/Frameworks/ApplicationServices.fra
 	[self addFontWithName:@"STHeitiTC-Medium" note:@"Default TC font of Mac OS X 10.6"];
 	[self addFontWithName:@"STHeitiTC-Light" note:@"Default TC font of Mac OS X 10.6"];
 	[self.tableView reloadData];
+	
+	[agreeWindow setDefaultButtonCell:[agreeButton cell]];
+	[NSApp beginSheet:agreeWindow modalForWindow:self.window modalDelegate:nil didEndSelector:NULL contextInfo:NULL];
 }
 
 #pragma mark -

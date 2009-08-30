@@ -22,6 +22,16 @@
 "The original coretext setting does not exist! Your system might have a big problem..." = "The original coretext setting does not exist! Your system might have a big problem...";
 "Failed to parse the coretext setting! Your system might have a big problem..." = "Failed to parse the coretext setting! Your system might have a big problem...";
 
+"LiGothicMed" = "Apple LiGothic Medium";
+"LiHeiPro" = "LiHei Pro";
+"STHeitiTC-Medium"= "Heiti TC Medium";
+"STHeitiTC-Light" = "Heiti TC Light";
+"STXihei" = "STXihei";
+"STHeiti" = "STHeiti";
+"HiraKakuPro-W3" = "Hiragino Kaku Gothic Pro W3";
+"HiraKakuPro-W6" = "Hiragino Kaku Gothic Pro W6";
+"HiraKakuProN-W3" = "Hiragino Kaku Gothic ProN W3";
+"HiraKakuProN-W6" = "Hiragino Kaku Gothic ProN W6";
 
 "Default TC font of Mac OS X 10.5" = "Default TC font of Mac OS X 10.5";
 "Default TC font of Mac OS X 10.6" = "Default TC font of Mac OS X 10.6";

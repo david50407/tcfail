@@ -42,6 +42,9 @@ extern NSString *plistFolderPath;
 
 	NSMutableArray *availableFontArray;
 	
+	IBOutlet NSWindow *agreeWindow;
+	IBOutlet NSButton *agreeButton;
+	
 	IBOutlet NSTextField *currentSystemFontNameLabel;
 	IBOutlet NSTextView *currrentSystemFontPreviewTextView;
 	IBOutlet NSTextField *currentSelectedFontNameLabel;
@@ -51,6 +54,9 @@ extern NSString *plistFolderPath;
 	NSString *currentSystemFontName;
 	NSString *currentSelectedFontName;
 }
+
+- (IBAction)agreeAction:(id)sender;
+- (IBAction)cancelAction:(id)sender;
 
 - (IBAction)change:(id)sender;
 - (IBAction)openPlistFolder:(id)sender;
