@@ -2,9 +2,9 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
-		<string key="IBDocument.SystemVersion">10A432</string>
+		<string key="IBDocument.SystemVersion">10B504</string>
 		<string key="IBDocument.InterfaceBuilderVersion">732</string>
-		<string key="IBDocument.AppKitVersion">1038</string>
+		<string key="IBDocument.AppKitVersion">1038.2</string>
 		<string key="IBDocument.HIToolboxVersion">437.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -12,8 +12,8 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="680"/>
 			<integer value="372"/>
+			<integer value="680"/>
 			<integer value="675"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -489,7 +489,7 @@
 												</object>
 											</object>
 											<double key="NSRowHeight">17</double>
-											<int key="NSTvFlags">-1027604480</int>
+											<int key="NSTvFlags">-759169024</int>
 											<reference key="NSDelegate"/>
 											<reference key="NSDataSource"/>
 											<int key="NSColumnAutoresizingStyle">4</int>
@@ -603,7 +603,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="915235843">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">272760832</int>
-								<string key="NSContents">Click the "Change!" button to use the font you select. The new font will take effect after logging out and relogin.</string>
+								<string key="NSContents">Click the "Change!" button to use the font you selectd. The new fallback setting will take effect the next time you login.</string>
 								<reference key="NSSupport" ref="26"/>
 								<reference key="NSControlView" ref="402165861"/>
 								<reference key="NSBackgroundColor" ref="532569109"/>
@@ -1040,6 +1040,7 @@
 				<string key="NSWindowTitle">Window</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
+				<string key="NSWindowContentMaxSize">{1.79769e+308, 1.79769e+308}</string>
 				<object class="NSView" key="NSWindowView" id="775298011">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
@@ -1048,13 +1049,13 @@
 						<object class="NSButton" id="459786922">
 							<reference key="NSNextResponder" ref="775298011"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{370, 12}, {96, 32}}</string>
+							<string key="NSFrame">{{260, 12}, {206, 32}}</string>
 							<reference key="NSSuperview" ref="775298011"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="745692571">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">I Agree</string>
+								<string key="NSContents">I  Understand and Agree</string>
 								<reference key="NSSupport" ref="422131899"/>
 								<reference key="NSControlView" ref="459786922"/>
 								<int key="NSButtonFlags">-2038284033</int>
@@ -1068,7 +1069,7 @@
 						<object class="NSButton" id="471433690">
 							<reference key="NSNextResponder" ref="775298011"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{274, 12}, {96, 32}}</string>
+							<string key="NSFrame">{{144, 12}, {116, 32}}</string>
 							<reference key="NSSuperview" ref="775298011"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="319622491">
@@ -1094,7 +1095,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="955947766">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">272629760</int>
-								<string key="NSContents">Note: This application helps you to change the default Traditional Chinese font fallback. It is a system level setting, we need system administrator previlege to change it and it may effect your system. You should agree that you know the risk before starting use the applicartion. This program is distributed in hope that it will be useful, but without any warranty.</string>
+								<string key="NSContents">WARNING: This application helps you change the default Traditional Chinese font fallback. Because it is a system setting, this application requires system administrator previlege to change it, and the change may affect your system. You agree that you know the risks before starting using the applicartion. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY.</string>
 								<object class="NSFont" key="NSSupport">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">13</double>
@@ -2139,9 +2140,9 @@
 					<integer value="1"/>
 					<string>{74, 862}</string>
 					<string>{{6, 978}, {478, 20}}</string>
-					<string>{{172, 320}, {857, 557}}</string>
+					<string>{{583, 0}, {857, 557}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{172, 320}, {857, 557}}</string>
+					<string>{{583, 0}, {857, 557}}</string>
 					<integer value="1"/>
 					<string>{{33, 99}, {480, 360}}</string>
 					<boolean value="YES"/>
@@ -2207,9 +2208,9 @@
 					<string>{{625, 813}, {125, 23}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{407, 652}, {480, 186}}</string>
+					<string>{{948, 540}, {480, 186}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{407, 652}, {480, 186}}</string>
+					<string>{{948, 540}, {480, 186}}</string>
 					<boolean value="NO"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
