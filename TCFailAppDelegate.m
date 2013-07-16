@@ -165,7 +165,7 @@ NSString *plistFolderPath = @"/System/Library/Frameworks/ApplicationServices.fra
 		for (id item in settings) {
 			if ([item isKindOfClass:[NSArray class]]) {
 				for (NSArray *a in item) {
-					if ([a count] && [[a objectAtIndex:0] isEqualToString:@"zh-Hant"]) {
+					if ([a count] && [[a objectAtIndex:0] isEqualToString:@"zh-Hans"]) {
 						[(NSMutableArray *)a replaceObjectAtIndex:1 withObject:currentTraditionalChineseFontName];
 					}
 				}
@@ -184,7 +184,7 @@ NSString *plistFolderPath = @"/System/Library/Frameworks/ApplicationServices.fra
 		return;
 	}
 
-	char * args[2];
+	char * args[3];
 	args[0] = (char *)[[self tempFilePath] UTF8String];
 	args[1] = (char *)[plistPath UTF8String];
 	args[2] = (char *)NULL;
@@ -248,7 +248,7 @@ NSString *plistFolderPath = @"/System/Library/Frameworks/ApplicationServices.fra
 		for (id item in settings) {
 			if ([item isKindOfClass:[NSArray class]]) {
 				for (NSArray *a in item) {
-					if ([a count] >= 2 && [[a objectAtIndex:0] isEqualToString:@"zh-Hant"]) {
+					if ([a count] >= 2 && [[a objectAtIndex:0] isEqualToString:@"zh-Hans"]) {
 						self.currentSystemFontName = [a objectAtIndex:1];
 						[self updatePreview];
 						return;
@@ -262,7 +262,7 @@ NSString *plistFolderPath = @"/System/Library/Frameworks/ApplicationServices.fra
 - (void)updatePreview
 {
 	CGFloat fontSize = [fontSizeSlider doubleValue];
-	NSString *previewText = [NSString stringWithUTF8String:"中文字體範例請晴睛餉飯食令零翱翔賣讀直值楊揚，鄉響、饗俞。輸妳好"];
+	NSString *previewText = [NSString stringWithUTF8String:"中文字體範例請晴睛餉飯食令零翱翔賣讀直值楊揚，鄉響、饗俞。輸妳好\n1234567890abcdABCD"];
 	if (self.currentSystemFontName) {
 		[currentSystemFontNameLabel setStringValue:NSLocalizedString(self.currentSystemFontName, @"")];
 		NSDictionary *attr = [NSDictionary dictionaryWithObjectsAndKeys:[NSFont fontWithName:self.currentSystemFontName size:fontSize], NSFontAttributeName, nil];
@@ -297,6 +297,14 @@ NSString *plistFolderPath = @"/System/Library/Frameworks/ApplicationServices.fra
 	NSLog(@"current system font name: %@", self.currentSystemFontName);
 	
 	availableFontArray = [[NSMutableArray alloc] init];
+    NSFontManager *fontManager = [NSFontManager sharedFontManager];
+    NSArray *fonts = [fontManager availableFonts];
+    for (NSString *font in fonts)
+    {
+        [self addFontWithName:font note:font];
+    }
+    
+    /*
 	[self addFontWithName:@"LiHeiPro" note:@"Default TC font of Mac OS X 10.5"];
 	[self addFontWithName:@"LiGothicMed" note:@"Traditional Chinese font"];
 	[self addFontWithName:@"STXihei" note:@"Simplified Chinese font"];
@@ -309,8 +317,10 @@ NSString *plistFolderPath = @"/System/Library/Frameworks/ApplicationServices.fra
 	[self addFontWithName:@"HiraKakuProN-W6" note:@"Japanese font"];
 	[self addFontWithName:@"STHeitiTC-Medium" note:@"Default TC font of Mac OS X 10.6"];
 	[self addFontWithName:@"STHeitiTC-Light" note:@"Default TC font of Mac OS X 10.6"];
+    [self addFontWithName:@"Lantinghei" note:@""];
+     */
+    
 	[self.tableView reloadData];
-	
 
 	NSUInteger selectedRow;
 	for (selectedRow = 0 ; selectedRow < [availableFontArray count] ; selectedRow++) {
