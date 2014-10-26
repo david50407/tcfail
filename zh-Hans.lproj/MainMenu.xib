@@ -330,7 +330,7 @@
 											<int key="NSvFlags">4352</int>
 											<string key="NSFrameSize">{584, 418}</string>
 											<reference key="NSSuperview" ref="1053902912"/>
-											<reference key="NSNextKeyView" ref="190052857"/>
+											<reference key="NSNextKeyView" ref="388607060"/>
 											<bool key="NSEnabled">YES</bool>
 											<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 											<bool key="NSControlAllowsExpansionToolTips">YES</bool>
@@ -554,7 +554,7 @@
 							</array>
 							<string key="NSFrame">{{20, 76}, {586, 436}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
-							<reference key="NSNextKeyView" ref="388607060"/>
+							<reference key="NSNextKeyView" ref="1053902912"/>
 							<int key="NSsFlags">133682</int>
 							<reference key="NSVScroller" ref="190052857"/>
 							<reference key="NSHScroller" ref="29543865"/>
@@ -573,7 +573,7 @@
 							<reference key="NSNextKeyView" ref="567745460"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="487412838">
-								<int key="NSCellFlags">-2080374784</int>
+								<int key="NSCellFlags">-1543503872</int>
 								<int key="NSCellFlags2">134217728</int>
 								<string key="NSContents">修改</string>
 								<object class="NSFont" key="NSSupport" id="782417265">
@@ -708,7 +708,7 @@
 																	<int key="NSvFlags">2322</int>
 																	<string key="NSFrameSize">{189, 169}</string>
 																	<reference key="NSSuperview" ref="416240429"/>
-																	<reference key="NSNextKeyView" ref="525781536"/>
+																	<reference key="NSNextKeyView" ref="921193458"/>
 																	<object class="NSTextContainer" key="NSTextContainer" id="527655887">
 																		<object class="NSLayoutManager" key="NSLayoutManager">
 																			<object class="NSTextStorage" key="NSTextStorage">
@@ -826,7 +826,7 @@
 													</array>
 													<string key="NSFrameSize">{191, 171}</string>
 													<reference key="NSSuperview" ref="725591537"/>
-													<reference key="NSNextKeyView" ref="921193458"/>
+													<reference key="NSNextKeyView" ref="416240429"/>
 													<int key="NSsFlags">133138</int>
 													<reference key="NSVScroller" ref="525781536"/>
 													<reference key="NSHScroller" ref="921193458"/>
@@ -896,7 +896,7 @@
 																	<int key="NSvFlags">2322</int>
 																	<string key="NSFrameSize">{189, 169}</string>
 																	<reference key="NSSuperview" ref="961205375"/>
-																	<reference key="NSNextKeyView" ref="424824187"/>
+																	<reference key="NSNextKeyView" ref="685179410"/>
 																	<object class="NSTextContainer" key="NSTextContainer" id="321187768">
 																		<object class="NSLayoutManager" key="NSLayoutManager">
 																			<object class="NSTextStorage" key="NSTextStorage">
@@ -980,7 +980,7 @@
 													</array>
 													<string key="NSFrameSize">{191, 171}</string>
 													<reference key="NSSuperview" ref="393154514"/>
-													<reference key="NSNextKeyView" ref="685179410"/>
+													<reference key="NSNextKeyView" ref="961205375"/>
 													<int key="NSsFlags">133138</int>
 													<reference key="NSVScroller" ref="424824187"/>
 													<reference key="NSHScroller" ref="685179410"/>
@@ -2011,6 +2011,7 @@
 				<string key="371.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="371.IBWindowTemplateEditedContentRect">{{172, 0}, {857, 557}}</string>
 				<integer value="1" key="371.NSWindowTemplate.visibleAtLaunch"/>
+				<reference key="372.IBNSViewMetadataGestureRecognizers" ref="0"/>
 				<string key="372.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="420.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="494.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
