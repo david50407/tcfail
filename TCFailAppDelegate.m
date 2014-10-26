@@ -3,6 +3,7 @@
 // TCFail
 //
 // Copyright (c) Weizhong Yang (http://zonble.net)
+// Modified by Richard Li 20141026  mailto: othercat@gmai.com
 // All rights reserved.
 // 
 // Redistribution and use in source and binary forms, with or without
@@ -262,11 +263,11 @@ NSString *plistFolderPath = @"/System/Library/Frameworks/ApplicationServices.fra
 - (void)updatePreview
 {
 	CGFloat fontSize = [fontSizeSlider doubleValue];
-	NSString *previewText = [NSString stringWithUTF8String:"中文字體範例請晴睛餉飯食令零翱翔賣讀直值楊揚，鄉響、饗俞。輸妳好\n1234567890abcdABCD"];
+	NSString *previewText = [NSString stringWithUTF8String:"中文字體範例請晴睛餉飯食令零翱翔賣讀直值楊揚，鄉響、饗俞。骨できるヒビピefghEFGH\n中文字体范例请晴睛饷饭食令零翱翔卖读直值杨扬，乡响、飨俞。骨できるヒビピefghEFGH"];
 	if (self.currentSystemFontName) {
 		[currentSystemFontNameLabel setStringValue:NSLocalizedString(self.currentSystemFontName, @"")];
-		NSDictionary *attr = [NSDictionary dictionaryWithObjectsAndKeys:[NSFont fontWithName:self.currentSystemFontName size:fontSize], NSFontAttributeName, nil];
-		NSAttributedString *attrString = [[[NSAttributedString alloc] initWithString:previewText attributes:attr] autorelease];
+		NSDictionary *attr = [NSDictionary dictionaryWithObjectsAndKeys:[NSFont fontWithName:self.currentSystemFontName size:fontSize], NSFontAttributeName,@(NSUnderlineStyleSingle),NSUnderlineStyleAttributeName, nil];
+        NSAttributedString *attrString = [[[NSAttributedString alloc] initWithString:previewText attributes:attr] autorelease];
 		[[currrentSystemFontPreviewTextView textStorage] setAttributedString:attrString];
 	}
 	else {
@@ -275,7 +276,7 @@ NSString *plistFolderPath = @"/System/Library/Frameworks/ApplicationServices.fra
 	}
 	if (self.currentSelectedFontName) {
 		[currentSelectedFontNameLabel setStringValue:NSLocalizedString(self.currentSelectedFontName, @"")];
-		NSDictionary *attr = [NSDictionary dictionaryWithObjectsAndKeys:[NSFont fontWithName:self.currentSelectedFontName size:fontSize], NSFontAttributeName, nil];
+		NSDictionary *attr = [NSDictionary dictionaryWithObjectsAndKeys:[NSFont fontWithName:self.currentSelectedFontName size:fontSize], NSFontAttributeName,@(NSUnderlineStyleSingle),NSUnderlineStyleAttributeName, nil];
 		NSAttributedString *attrString = [[[NSAttributedString alloc] initWithString:previewText attributes:attr] autorelease];
 		[[currentSelectedFontPreviewTextView textStorage] setAttributedString:attrString];
 		
@@ -299,26 +300,56 @@ NSString *plistFolderPath = @"/System/Library/Frameworks/ApplicationServices.fra
 	availableFontArray = [[NSMutableArray alloc] init];
     NSFontManager *fontManager = [NSFontManager sharedFontManager];
     NSArray *fonts = [fontManager availableFonts];
+    /*
     for (NSString *font in fonts)
     {
         [self addFontWithName:font note:font];
     }
     
-    /*
-	[self addFontWithName:@"LiHeiPro" note:@"Default TC font of Mac OS X 10.5"];
+    */
+    [self addFontWithName:@"LiHeiPro" note:@"Default TC font of Mac OS X 10.5"];
 	[self addFontWithName:@"LiGothicMed" note:@"Traditional Chinese font"];
 	[self addFontWithName:@"STXihei" note:@"Simplified Chinese font"];
 	[self addFontWithName:@"STHeiti" note:@"Simplified Chinese font"];
 	[self addFontWithName:@"HiraginoSansGB-W3" note:@"Japanese font with Chinese codepoint coverage"];
-	[self addFontWithName:@"HiraginoSansGB-W6" note:@"Japanese font with Chinese codepoint coverage"];
 	[self addFontWithName:@"HiraKakuPro-W3" note:@"Japanese font"];
+    [self addFontWithName:@"HiraKakuProN-W3" note:@"Japanese font"];
+    [self addFontWithName:@"HiraginoSansGB-W6" note:@"Japanese font with Chinese codepoint coverage"];
 	[self addFontWithName:@"HiraKakuPro-W6" note:@"Japanese font"];
-	[self addFontWithName:@"HiraKakuProN-W3" note:@"Japanese font"];
 	[self addFontWithName:@"HiraKakuProN-W6" note:@"Japanese font"];
-	[self addFontWithName:@"STHeitiTC-Medium" note:@"Default TC font of Mac OS X 10.6"];
-	[self addFontWithName:@"STHeitiTC-Light" note:@"Default TC font of Mac OS X 10.6"];
-    [self addFontWithName:@"Lantinghei" note:@""];
-     */
+    
+    [self addFontWithName:@"STHeitiTC-Medium" note:@"Default TC font of Mac OS X 10.6"];
+    [self addFontWithName:@"STHeitiTC-Light" note:@"Default TC font of Mac OS X 10.6"];
+    
+    [self addFontWithName:@"SourceHanSansSC-ExtraLight" note:@"Simplified Chinese font"];
+    [self addFontWithName:@"SourceHanSansTC-ExtraLight" note:@"Traditional Chinese font"];
+    [self addFontWithName:@"SourceHanSansSC-Light" note:@"Simplified Chinese font"];
+    [self addFontWithName:@"SourceHanSansTC-Light" note:@"Traditional Chinese font"];
+    [self addFontWithName:@"SourceHanSansSC-Medium" note:@"Simplified Chinese font"];
+    [self addFontWithName:@"SourceHanSansTC-Medium" note:@"Traditional Chinese font"];
+    [self addFontWithName:@"SourceHanSansSC-Normal" note:@"Simplified Chinese font"];
+    [self addFontWithName:@"SourceHanSansTC-Normal" note:@"Traditional Chinese font"];
+    [self addFontWithName:@"SourceHanSansSC-Regular" note:@"Simplified Chinese font"];
+    [self addFontWithName:@"SourceHanSansTC-Regular" note:@"Traditional Chinese font"];
+    [self addFontWithName:@"SourceHanSansSC-Bold" note:@"Simplified Chinese font"];
+    [self addFontWithName:@"SourceHanSansTC-Bold" note:@"Traditional Chinese font"];
+    [self addFontWithName:@"SourceHanSansSC-Heavy" note:@"Simplified Chinese font"];
+    [self addFontWithName:@"SourceHanSansTC-Heavy" note:@"Traditional Chinese font"];
+    
+    [self addFontWithName:@"Lantinghei SC Extralight" note:@"New TC font of Mac OS X 10.8"];
+    [self addFontWithName:@"Lantinghei TC Extralight" note:@"New TC font of Mac OS X 10.8"];
+    [self addFontWithName:@"Lantinghei SC Demibold" note:@"New TC font of Mac OS X 10.8"];
+    [self addFontWithName:@"Lantinghei TC Demibold" note:@"New TC font of Mac OS X 10.8"];
+    [self addFontWithName:@"Lantinghei SC Heavy" note:@"New TC font of Mac OS X 10.8"];
+    [self addFontWithName:@"Lantinghei TC Heavy" note:@"New TC font of Mac OS X 10.8"];
+    
+    [self addFontWithName:@"Yuppy TC Regular" note:@"New TC font of Mac OS X 10.8"];
+    [self addFontWithName:@"Wawati TC" note:@"New TC font of Mac OS X 10.8"];
+    [self addFontWithName:@"Hannotate TC Regular" note:@"New TC font of Mac OS X 10.9"];
+    [self addFontWithName:@"HanziPen TC Regular" note:@"New TC font of Mac OS X 10.9"];
+
+
+    
     
 	[self.tableView reloadData];
 

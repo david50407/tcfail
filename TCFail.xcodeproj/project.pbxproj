@@ -39,6 +39,10 @@
 		D4E26AB8104996BC00CE1D40 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D4E26AD3104997E500CE1D40 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		D4E26AD71049980500CE1D40 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		EF085C2119FD18EA00BC1531 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.xib"; sourceTree = "<group>"; };
+		EF76E08219FD183A0032B76D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		EF76E08319FD18420032B76D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		EF76E08419FD184C0032B76D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = "zh-Hans"; path = "zh-Hans.lproj/Credits.rtf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,7 @@
 				French,
 				German,
 				"zh-Hant",
+				"zh-Hans",
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* TCFail */;
 			projectDirPath = "";
@@ -215,6 +220,7 @@
 			children = (
 				089C165DFE840E0CC02AAC07 /* English */,
 				D4E26AD3104997E500CE1D40 /* zh-Hant */,
+				EF76E08319FD18420032B76D /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -224,6 +230,7 @@
 			children = (
 				1DDD58150DA1D0A300B32029 /* English */,
 				D4BF9C98104AE6B100CA4C47 /* zh-Hant */,
+				EF085C2119FD18EA00BC1531 /* zh-Hans */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -233,6 +240,7 @@
 			children = (
 				D4D27FEF104A7D2D00A959FB /* English */,
 				D4D27FF9104A7E5400A959FB /* zh-Hant */,
+				EF76E08419FD184C0032B76D /* zh-Hans */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -242,6 +250,7 @@
 			children = (
 				D4E26AB8104996BC00CE1D40 /* English */,
 				D4E26AD71049980500CE1D40 /* zh-Hant */,
+				EF76E08219FD183A0032B76D /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

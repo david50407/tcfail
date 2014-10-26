@@ -28,12 +28,47 @@
 "STHeitiTC-Light" = "黑體-繁 細體";
 "STXihei" = "华文细黑";
 "STHeiti" = "华文黑体";
-"HiraKakuPro-W3" = "ヒラギノ角ゴ Pro W3";
-"HiraKakuPro-W6" = "ヒラギノ角ゴ Pro W6";
-"HiraKakuProN-W3" = "ヒラギノ角ゴ ProN W3";
-"HiraKakuProN-W6" = "ヒラギノ角ゴ ProN W6";
+"HiraKakuPro-W3" = "冬青黑體Pro W3";
+"HiraKakuPro-W6" = "冬青黑體Pro W6";
+"HiraKakuProN-W3" = "冬青黑體ProN W3";
+"HiraKakuProN-W6" = "冬青黑體ProN W6";
+"HiraginoSansGB-W3" = "冬青黑體簡體中文 W3";
+"HiraginoSansGB-W6" = "冬青黑體簡體中文 W6";
+
+"SourceHanSansSC-ExtraLight" = "思源黑體-簡 ExtraLight";
+"SourceHanSansSC-Light" = "思源黑體-簡 Light";
+"SourceHanSansSC-Medium" = "思源黑體-簡 Medium";
+"SourceHanSansSC-Normal" = "思源黑體-簡 Normal";
+"SourceHanSansSC-Regular" = "思源黑體-簡 Regular";
+"SourceHanSansSC-Bold" = "思源黑體-簡 Bold";
+"SourceHanSansSC-Heavy" = "思源黑體-簡 Heavy";
+
+"SourceHanSansTC-ExtraLight" = "思源黑體-繁 ExtraLight";
+"SourceHanSansTC-Light" = "思源黑體-繁 Light";
+"SourceHanSansTC-Medium" = "思源黑體-繁 Medium";
+"SourceHanSansTC-Normal" = "思源黑體-繁 Normal";
+"SourceHanSansTC-Regular" = "思源黑體-繁 Regular";
+"SourceHanSansTC-Bold" = "思源黑體-繁 Bold";
+"SourceHanSansTC-Heavy" = "思源黑體-繁 Heavy";
+
+"Lantinghei TC Extralight" = "蘭亭黑-繁 纖黑";
+"Lantinghei TC Heavy" = "蘭亭黑-繁 特黑";
+"Lantinghei TC Demibold" = "蘭亭黑-繁 中黑";
+"Lantinghei SC Extralight" = "蘭亭黑-簡 纖黑";
+"Lantinghei SC Heavy" = "蘭亭黑-簡 特黑";
+"Lantinghei SC Demibold" = "蘭亭黑-簡 中黑";
+
+"Yuppy TC Regular" = "雅痞-繁";
+"Wawati TC" = "娃娃體-繁";
+"Hannotate TC Regular" = "手札體-繁";
+"HanziPen TC Regular" = "翩翩體-繁";
+"Lantinghei TC Extralight" = "蘭亭黑-繁";
 "Default TC font of Mac OS X 10.5" = "Mac OS X 10.5 預設繁體中文字體";
 "Default TC font of Mac OS X 10.6" = "Mac OS X 10.6 預設繁體中文字體";
+"New TC font of Mac OS X 10.8" = "Mac OS X 10.8 繁體中文新增字體";
+"New TC font of Mac OS X 10.9" = "Mac OS X 10.9 繁體中文新增字體";
 "Traditional Chinese font" = "繁體中文字體";
 "Simplified Chinese font" = "簡體中文字體";
 "Japanese font" = "日文字體";
+"Japanese font with Chinese codepoint coverage" = "日文字體 (包含中文字碼)";
+"SourceHanSansTC-Regular"= "思源黑-簡";

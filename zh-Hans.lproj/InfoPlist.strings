@@ -2,4 +2,4 @@
 
 CFBundleName = "TCFail";
 CFBundleDisplayName = "TCFail";
-NSHumanReadableCopyright = "Copyright © 2014 Richard Li. All Rights Reserved.";
+NSHumanReadableCopyright = "Copyright © 2014 Richard Li. 版权所有. ";

@@ -1,0 +1,73 @@
+/* No comment provided by engineer. */
+"Cancel" = "取消";
+
+/* No comment provided by engineer. */
+"Could not get authorization, failing." = "无法取得授权，变更系统字体失败！";
+
+/* No comment provided by engineer. */
+"Logout" = "注销";
+
+/* No comment provided by engineer. */
+"OK" = "好";
+
+/* No comment provided by engineer. */
+"Please select the font that you want to use." = "请选择您想要使用的字体。";
+
+/* No comment provided by engineer. */
+"The new font will take effect after logging out. Do you want to logout now?" = "系统字体会在您重新登入后生效。请问您想要现在就注销吗？";
+
+/* No comment provided by engineer. */
+"Unable to write your setting." = "无法写入系统设定。";
+
+"The original coretext setting does not exist! Your system might have a big problem..." = "原始的 coretext 设置不存在，您的系统可能有大问题…";
+"Failed to parse the coretext setting! Your system might have a big problem..." = "无法解译原始的 coretext 设置，您的系统可能有大问题…";
+
+"LiGothicMed" = "苹果俪中黑";
+"LiHeiPro" = "俪黑 Pro";
+"STHeitiTC-Medium"= "黑体-繁 中黑";
+"STHeitiTC-Light" = "黑体-繁 细体";
+"STXihei" = "华文细黑";
+"STHeiti" = "华文黑体";
+"HiraKakuPro-W3" = "ヒラギノ角ゴ Pro W3";
+"HiraKakuPro-W6" = "ヒラギノ角ゴ Pro W6";
+"HiraKakuProN-W3" = "ヒラギノ角ゴ ProN W3";
+"HiraKakuProN-W6" = "ヒラギノ角ゴ ProN W6";
+"HiraginoSansGB-W3" = "冬青黑体简体中文 W3";
+"HiraginoSansGB-W6" = "冬青黑体简体中文 W6";
+
+"SourceHanSansSC-ExtraLight" = "思源黑体-简 ExtraLight";
+"SourceHanSansSC-Light" = "思源黑体-简 Light";
+"SourceHanSansSC-Medium" = "思源黑体-简 Medium";
+"SourceHanSansSC-Normal" = "思源黑体-简 Normal";
+"SourceHanSansSC-Regular" = "思源黑体-简 Regular";
+"SourceHanSansSC-Bold" = "思源黑体-简 Bold";
+"SourceHanSansSC-Heavy" = "思源黑体-简 Heavy";
+
+"SourceHanSansTC-ExtraLight" = "思源黑体-繁 ExtraLight";
+"SourceHanSansTC-Light" = "思源黑体-繁 Light";
+"SourceHanSansTC-Medium" = "思源黑体-繁 Medium";
+"SourceHanSansTC-Normal" = "思源黑体-繁 Normal";
+"SourceHanSansTC-Regular" = "思源黑体-繁 Regular";
+"SourceHanSansTC-Bold" = "思源黑体-繁 Bold";
+"SourceHanSansTC-Heavy" = "思源黑体-繁 Heavy";
+
+"Lantinghei TC Extralight" = "兰亭黑-繁 纤黑";
+"Lantinghei TC Heavy" = "兰亭黑-繁 特黑";
+"Lantinghei TC Demibold" = "兰亭黑-繁 中黑";
+"Lantinghei SC Extralight" = "兰亭黑-简 纤黑";
+"Lantinghei SC Heavy" = "兰亭黑-简 特黑";
+"Lantinghei SC Demibold" = "兰亭黑-简 中黑";
+
+"Yuppy TC Regular" = "雅痞-繁";
+"Wawati TC" = "娃娃体-繁";
+"Hannotate TC Regular" = "手札体-繁";
+"HanziPen TC Regular" = "翩翩体-繁";
+"Lantinghei TC Extralight" = "兰亭黑-繁";
+"Default TC font of Mac OS X 10.5" = "Mac OS X 10.5 默认繁体中文字体";
+"Default TC font of Mac OS X 10.6" = "Mac OS X 10.6 默认繁体中文字体";
+"New TC font of Mac OS X 10.8" = "Mac OS X 10.8 繁体中文新增字体";
+"New TC font of Mac OS X 10.9" = "Mac OS X 10.9 繁体中文新增字体";
+"Traditional Chinese font" = "繁体中文字体";
+"Simplified Chinese font" = "简体中文字体";
+"Japanese font" = "日文字体";
+"Japanese font with Chinese codepoint coverage" = "日文字体 (包含中文字码)";
