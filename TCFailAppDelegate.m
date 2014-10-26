@@ -230,6 +230,9 @@ NSString *plistFolderPath = @"/System/Library/Frameworks/ApplicationServices.fra
 
 - (void)retrieveCurrentSystemFontName
 {
+    NSString *urlString = nil;
+    NSString *languageCode = [[NSLocale preferredLanguages] objectAtIndex:0];
+
 	NSData *data = [NSData dataWithContentsOfFile:plistPath];
 	NSPropertyListFormat format;
 	id plist = [NSPropertyListSerialization propertyListFromData:data mutabilityOption:NSPropertyListMutableContainersAndLeaves format:&format errorDescription:NULL];
@@ -249,12 +252,19 @@ NSString *plistFolderPath = @"/System/Library/Frameworks/ApplicationServices.fra
 		for (id item in settings) {
 			if ([item isKindOfClass:[NSArray class]]) {
 				for (NSArray *a in item) {
-					if ([a count] >= 2 && [[a objectAtIndex:0] isEqualToString:@"zh-Hans"]) {
+					if ([a count] >= 2 && [[a objectAtIndex:0] isEqualToString:languageCode]) {
 						self.currentSystemFontName = [a objectAtIndex:1];
 						[self updatePreview];
 						return;
 					}
 				}
+                for (NSArray *a in item) {
+                    if ([a count] >= 2 && [[a objectAtIndex:0] isEqualToString:@"zh-Hans"]) {
+                        self.currentSystemFontName = [a objectAtIndex:1];
+                        [self updatePreview];
+                        return;
+                    }
+                }
 			}
 		}
 	}
